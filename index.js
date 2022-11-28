@@ -14,36 +14,11 @@ form.addEventListener("submit", (e) => {
 function checkInputs() {
   // trim to remove the whitespaces
   const usuarioValue = usuario.value.trim();
-  const emailValue = email.value.trim();
-  const passwordValue = password.value.trim();
-  const password2Value = password2.value.trim();
 
   if (usuarioValue === "") {
     setErrorFor(usuario, "No puede dejar el usuairo en blanco");
   } else {
     setSuccessFor(usuario);
-  }
-
-  if (emailValue === "") {
-    setErrorFor(email, "No puede dejar el email en blanco");
-  } else if (!isEmail(emailValue)) {
-    setErrorFor(email, "No ingreso un email válido");
-  } else {
-    setSuccessFor(email);
-  }
-
-  if (passwordValue === "") {
-    setErrorFor(password, "Password no debe ingresar en blanco.");
-  } else {
-    setSuccessFor(password);
-  }
-
-  if (password2Value === "") {
-    setErrorFor(password2, "Password2 no debe ngresar en blanco");
-  } else if (passwordValue !== password2Value) {
-    setErrorFor(password2, "Passwords no coinciden");
-  } else {
-    setSuccessFor(password2);
   }
 }
 
@@ -58,6 +33,16 @@ const validAge = () => {
   } else {
     setErrorFor(document.querySelector("#date"), "Debes ser mayor de 18 años");
   }
+};
+
+const workerCategory = () => {
+  const A = document.querySelector("#cat-a").value;
+  const B = document.querySelector("#cat-b").value;
+  const C = document.querySelector("#cat-c").value;
+  const D = document.querySelector("#cat-d").value;
+  let basicPayment = 0;
+  console.log(basicPayment);
+  return basicPayment;
 };
 
 function setErrorFor(input, message) {
@@ -81,3 +66,4 @@ function isEmail(email) {
 // validAge();
 
 submitButton.addEventListener("click", validAge);
+submitButton.addEventListener("click", workerCategory);

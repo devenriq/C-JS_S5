@@ -10,7 +10,7 @@
   <body>
     <div class="container">
       <div class="header">
-        <h2>Crear cuenta</h2>
+        <h2>Cálculo de sueldo</h2>
       </div>
       <form id="form" class="form">
         <div class="form-control">
@@ -21,39 +21,38 @@
           <small>Error message</small>
         </div>
         <div class="form-control">
-          <label for="email">Email</label>
-          <input type="email" placeholder="grovervas@email.com" id="email" />
+          <label for="date">Fecha de inicio en el trabajo</label>
+          <input id="date" type="month" value="2022-28" />
           <i class="fas fa-check-circle"></i>
           <i class="fas fa-exclamation-circle"></i>
           <small>Error message</small>
         </div>
         <div class="form-control">
-          <label for="password">Password</label>
-          <input type="password" placeholder="Password" id="password" />
-          <i class="fas fa-check-circle"></i>
-          <i class="fas fa-exclamation-circle"></i>
-          <small>Error message</small>
-        </div>
-        <div class="form-control">
-          <label for="password2">Repetir password</label>
-          <input type="password" placeholder="Password dos" id="password2" />
-          <i class="fas fa-check-circle"></i>
-          <i class="fas fa-exclamation-circle"></i>
-          <small>Error message</small>
-        </div>
-        <div class="form-control">
-          <label for="date">Date</label>
-          <input
-            id="date"
-            type="date"
-            placeholder="Ingresa tu fecha de nacimiento"
-          />
-          <i class="fas fa-check-circle"></i>
-          <i class="fas fa-exclamation-circle"></i>
-          <small>Error message</small>
+          <label for="email">Categoría del trabajador</label>
+          <input list="category-list" />
+          <datalist id="category-list">
+            <option id="cat-a" value="40">Categoría A</option>
+            <option id="cat-b" value="35">Categoría B</option>
+            <option id="cat-c" value="30">Categoría C</option>
+            <option id="cat-d" value="28">Categoría D</option>
+          </datalist>
         </div>
         <button id="submit">Submit</button>
       </form>
+      <div class="form">
+        <div class="form-control">
+          <label for="">Sueldo básico</label>
+          <p class="input-basic"></p>
+        </div>
+        <div class="form-control">
+          <label for="">Bonificación</label>
+          <p class="input-bonificacion"></p>
+        </div>
+        <div class="form-control">
+          <label for="">Sueldo neto</label>
+          <p class="input-neto"></p>
+        </div>
+      </div>
     </div>
   </body>
   <script src="./index.js"></script>
