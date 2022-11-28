@@ -3,6 +3,7 @@ const usuario = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const password2 = document.getElementById("password2");
+const submitButton = document.querySelector("#submit");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -18,7 +19,7 @@ function checkInputs() {
   const password2Value = password2.value.trim();
 
   if (usuarioValue === "") {
-    setErrorFor(usuario, "Noi puede dejar el usuairo en blanco");
+    setErrorFor(usuario, "No puede dejar el usuairo en blanco");
   } else {
     setSuccessFor(usuario);
   }
@@ -46,6 +47,19 @@ function checkInputs() {
   }
 }
 
+const validAge = () => {
+  const userAge = document.querySelector("#date").value;
+  const currentDate = new Date().getFullYear();
+  const dateEntered = new Date(userAge).getFullYear();
+  const subtract = Math.abs(currentDate - dateEntered);
+  console.log(subtract);
+  if (subtract >= 18) {
+    setSuccessFor(document.querySelector("#date"));
+  } else {
+    setErrorFor(document.querySelector("#date"), "Debes ser mayor de 18 años");
+  }
+};
+
 function setErrorFor(input, message) {
   const formControl = input.parentElement;
   const small = formControl.querySelector("small");
@@ -63,3 +77,7 @@ function isEmail(email) {
     email
   );
 }
+
+// validAge();
+
+submitButton.addEventListener("click", validAge);
